@@ -9,11 +9,14 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { font-family: 'Poppins', sans-serif; color: #333; line-height: 1.6; overflow-x: hidden; }
 
+    /* Header */
     header { background: #002B5B; padding: 15px 40px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
     header h1 { color: white; font-size: 1.5rem; }
+    nav { display: flex; }
     nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: 500; transition: 0.3s; }
     nav a:hover { color: #FFD700; }
-    
+    .menu-toggle { display: none; font-size: 1.8rem; color: white; cursor: pointer; }
+
     /* Hero Slider */
     .slider { position: relative; height: 90vh; overflow: hidden; }
     .slides { display: flex; width: 300%; animation: slide 15s infinite; }
@@ -26,9 +29,9 @@
       70% { margin-left: -200vw; }
       100% { margin-left: -200vw; }
     }
-    .hero-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; }
+    .hero-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; padding: 0 15px; }
     .hero-text h2 { font-size: 2.5rem; font-weight: 700; text-shadow: 2px 2px 6px rgba(0,0,0,0.6); }
-    .btn { background: linear-gradient(45deg, #0078A8, #00C6FF); color: white; padding: 12px 25px; margin-top: 20px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: 0.4s; }
+    .btn { background: linear-gradient(45deg, #0078A8, #00C6FF); color: white; padding: 12px 25px; margin-top: 20px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: 0.4s; display: inline-block; }
     .btn:hover { background: linear-gradient(45deg, #00C6FF, #0078A8); }
 
     /* Partner Tabs */
@@ -54,92 +57,26 @@
     .partner-logos img:hover { filter: grayscale(0%); transform: scale(1.05); }
 
     /* Contact Section with Animated Background */
-    .contact {
-      position: relative;
-      padding: 80px 40px;
-      text-align: center;
-      overflow: hidden;
-      background: #f9f9f9;
-    }
-
-    /* Floating Background Shapes */
-    .background-shapes {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      overflow: hidden;
-      z-index: 0;
-    }
-
-    .background-shapes span {
-      position: absolute;
-      display: block;
-      width: 120px; height: 120px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,120,168,0.6), rgba(0,0,0,0));
-      animation: float 18s infinite linear;
-    }
-
+    .contact { position: relative; padding: 80px 40px; text-align: center; overflow: hidden; background: #f9f9f9; }
+    .background-shapes { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0; }
+    .background-shapes span { position: absolute; display: block; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle, rgba(0,120,168,0.6), rgba(0,0,0,0)); animation: float 18s infinite linear; }
     .background-shapes span:nth-child(1) { top: 10%; left: 20%; background: radial-gradient(circle, rgba(0,120,255,0.5), transparent); animation-duration: 15s; }
     .background-shapes span:nth-child(2) { top: 40%; left: 70%; background: radial-gradient(circle, rgba(168,0,255,0.5), transparent); animation-duration: 18s; }
     .background-shapes span:nth-child(3) { top: 80%; left: 10%; background: radial-gradient(circle, rgba(0,200,168,0.5), transparent); animation-duration: 20s; }
     .background-shapes span:nth-child(4) { top: 30%; left: 40%; background: radial-gradient(circle, rgba(255,0,120,0.5), transparent); animation-duration: 25s; }
     .background-shapes span:nth-child(5) { top: 60%; left: 80%; background: radial-gradient(circle, rgba(255,168,0,0.5), transparent); animation-duration: 22s; }
+    @keyframes float { 0% { transform: translateY(0) scale(1); opacity: 0.7; } 50% { transform: translateY(-50px) scale(1.2); opacity: 0.4; } 100% { transform: translateY(0) scale(1); opacity: 0.7; } }
 
-    @keyframes float {
-      0% { transform: translateY(0) scale(1); opacity: 0.7; }
-      50% { transform: translateY(-50px) scale(1.2); opacity: 0.4; }
-      100% { transform: translateY(0) scale(1); opacity: 0.7; }
-    }
-
-    /* Form Content (Above Shapes) */
-    .contact h2, .contact p, .contact-form {
-      position: relative;
-      z-index: 1;
-    }
-
-    .contact h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: #002B5B;
-    }
-    .contact p {
-      margin-bottom: 20px;
-      color: #444;
-    }
-
-    .contact-form {
-      max-width: 600px;
-      margin: 20px auto 0;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .contact-form input, 
-    .contact-form textarea {
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      outline: none;
-      font-size: 1rem;
-    }
-
-    .contact-form textarea {
-      resize: none;
-      height: 120px;
-    }
+    .contact h2, .contact p, .contact-form { position: relative; z-index: 1; }
+    .contact h2 { font-size: 2rem; margin-bottom: 10px; color: #002B5B; }
+    .contact p { margin-bottom: 20px; color: #444; }
+    .contact-form { max-width: 600px; margin: 20px auto 0; display: flex; flex-direction: column; gap: 15px; }
+    .contact-form input, .contact-form textarea { padding: 12px; border-radius: 8px; border: 1px solid #ddd; outline: none; font-size: 1rem; }
+    .contact-form textarea { resize: none; height: 120px; }
 
     /* Animate elements */
-    .animate {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease;
-    }
-    .animate.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .animate { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+    .animate.visible { opacity: 1; transform: translateY(0); }
     .delay-1 { transition-delay: 0.2s; }
     .delay-2 { transition-delay: 0.4s; }
     .delay-3 { transition-delay: 0.6s; }
@@ -147,11 +84,27 @@
     .delay-5 { transition-delay: 1s; }
 
     footer { background: #002B5B; color: white; text-align: center; padding: 20px; margin-top: 30px; }
+
+    /* ===================== Responsive ===================== */
+    @media (max-width: 768px) {
+      nav { display: none; flex-direction: column; background: #002B5B; position: absolute; top: 60px; right: 0; width: 100%; padding: 20px; }
+      nav.active { display: flex; }
+      .menu-toggle { display: block; }
+      .hero-text h2 { font-size: 1.6rem; }
+      .btn { padding: 10px 18px; font-size: 0.9rem; }
+      .partner-tabs { flex-direction: column; align-items: center; }
+      .partner-card { width: 90%; margin-bottom: 15px; }
+    }
+    @media (max-width: 600px) {
+      .service-grid { grid-template-columns: 1fr; }
+      .contact-form input, .contact-form textarea { width: 100%; }
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>BiznessCentral</h1>
+    <span class="menu-toggle">&#9776;</span>
     <nav>
       <a href="#">Home</a>
       <a href="#">About</a>
@@ -169,10 +122,13 @@
       <img src="slider2.png" alt="ERP Solutions">
       <img src="slider3.png" alt="AI Integration">
     </div>
-    
+    <div class="hero-text">
+      <h2>Empowering Businesses with Dynamics 365</h2>
+      <a href="#contact" class="btn">Contact Us</a>
+    </div>
   </div><br><br><br>
 
-  <!-- Partner Tabs (Below Slider) -->
+  <!-- Partner Tabs -->
   <section class="partner-tabs">
     <div class="partner-card">
       <img src="microsoft.svg" alt="Microsoft">
@@ -192,7 +148,7 @@
     </div>
   </section>
 
-  <!-- Services Section -->
+  <!-- Services -->
   <section class="services">
     <h2>Our Core Services</h2>
     <div class="service-grid">
@@ -226,65 +182,48 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
-<section class="contact" id="contact">
-  <div class="background-shapes">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <h2 class="animate">Get in Touch</h2>
-  <p class="animate">Let’s discuss how BiznessCentral can transform your business with Microsoft Dynamics 365 Business Central.</p>
-  
-  <form id="contact-form" class="contact-form">
-    <input type="text" name="from_name" placeholder="Your Name" class="animate delay-1" required>
-    <input type="email" name="reply_to" placeholder="Your Email" class="animate delay-2" required>
-    <input type="text" name="company" placeholder="Company Name" class="animate delay-3">
-    <textarea name="message" placeholder="Your Message" class="animate delay-4" required></textarea>
-    <button type="submit" class="btn animate delay-5">Send Message</button>
-  </form>
-</section>
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="background-shapes">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <h2 class="animate">Get in Touch</h2>
+    <p class="animate">Let’s discuss how BiznessCentral can transform your business with Microsoft Dynamics 365 Business Central.</p>
+    <form id="contact-form" class="contact-form">
+      <input type="text" name="from_name" placeholder="Your Name" class="animate delay-1" required>
+      <input type="email" name="reply_to" placeholder="Your Email" class="animate delay-2" required>
+      <input type="text" name="company" placeholder="Company Name" class="animate delay-3">
+      <textarea name="message" placeholder="Your Message" class="animate delay-4" required></textarea>
+      <button type="submit" class="btn animate delay-5">Send Message</button>
+    </form>
+  </section>
 
-<!-- EmailJS Script -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("yXMtjTkg_PIJcyJCg"); // 🔑 Replace with your EmailJS Public Key
-  })();
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+  <script>
+    (function(){ emailjs.init("yXMtjTkg_PIJcyJCg"); })();
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      emailjs.sendForm("service_tr3cwvi", "template_782iqmd", this)
+        .then(() => alert("✅ Message sent successfully!"))
+        .catch(error => { alert("❌ Failed to send message."); console.log(error); });
+    });
 
-  document.getElementById("contact-form").addEventListener("submit", function(event) {
-    event.preventDefault();
+    // Scroll animation
+    const animatedItems = document.querySelectorAll('.animate');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
+    }, { threshold: 0.2 });
+    animatedItems.forEach(item => observer.observe(item));
 
-    emailjs.sendForm("service_tr3cwvi", "template_782iqmd", this)
-      .then(function() {
-        alert("✅ Message sent successfully!");
-      }, function(error) {
-        alert("❌ Failed to send message. Please try again.");
-        console.log(error);
-      });
-  });
-</script>
-
+    // Mobile menu toggle
+    document.querySelector(".menu-toggle").addEventListener("click", () => {
+      document.querySelector("nav").classList.toggle("active");
+    });
+  </script>
 
   <footer>
     <p>© 2025 BiznessCentral | Powered by Dynamics 365 Business Central Experts</p>
   </footer>
-
-  <script>
-    // Scroll animation for Get in Touch
-    const animatedItems = document.querySelectorAll('.animate');
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
-
-    animatedItems.forEach(item => observer.observe(item));
-  </script>
 </body>
 </html>
