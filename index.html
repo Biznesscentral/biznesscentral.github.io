@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BiznessCentral | Business Central Experts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { font-family: 'Poppins', sans-serif; color: #333; line-height: 1.6; overflow-x: hidden; }
+
+    header { background: #002B5B; padding: 15px 40px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { color: white; font-size: 1.5rem; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: 500; transition: 0.3s; }
+    nav a:hover { color: #FFD700; }
+    
+    /* Hero Slider */
+    .slider { position: relative; height: 90vh; overflow: hidden; }
+    .slides { display: flex; width: 300%; animation: slide 15s infinite; }
+    .slides img { width: 100vw; height: 90vh; object-fit: cover; flex-shrink: 0; }
+    @keyframes slide {
+      0% { margin-left: 0; }
+      30% { margin-left: 0; }
+      35% { margin-left: -100vw; }
+      65% { margin-left: -100vw; }
+      70% { margin-left: -200vw; }
+      100% { margin-left: -200vw; }
+    }
+    .hero-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; }
+    .hero-text h2 { font-size: 2.5rem; font-weight: 700; text-shadow: 2px 2px 6px rgba(0,0,0,0.6); }
+    .btn { background: linear-gradient(45deg, #0078A8, #00C6FF); color: white; padding: 12px 25px; margin-top: 20px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: 0.4s; }
+    .btn:hover { background: linear-gradient(45deg, #00C6FF, #0078A8); }
+
+    /* Partner Tabs */
+    .partner-tabs { display: flex; justify-content: center; gap: 20px; padding: 30px; flex-wrap: wrap; background: #fff; margin-top: -60px; }
+    .partner-card { background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 20px 30px; min-width: 220px; text-align: center; transition: 0.3s; }
+    .partner-card:hover { transform: translateY(-5px); }
+    .partner-card img { width: 100px; margin-bottom: 10px; }
+    .partner-card h3 { font-size: 1rem; color: #444; }
+
+    /* Services */
+    .services { padding: 60px 40px; text-align: center; background: #f9f9f9; }
+    .services h2 { font-size: 2rem; margin-bottom: 20px; color: #002B5B; }
+    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 30px; }
+    .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; }
+    .card:hover { transform: translateY(-8px); }
+    .card h3 { color: #0078A8; margin-bottom: 10px; }
+
+    /* Partners Section */
+    .partners { padding: 60px 40px; text-align: center; background: #fff; }
+    .partners h2 { font-size: 2rem; margin-bottom: 20px; color: #002B5B; }
+    .partner-logos { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin-top: 30px; }
+    .partner-logos img { width: 120px; filter: grayscale(100%); transition: 0.3s; }
+    .partner-logos img:hover { filter: grayscale(0%); transform: scale(1.05); }
+
+    /* Contact Section with Animated Background */
+    .contact {
+      position: relative;
+      padding: 80px 40px;
+      text-align: center;
+      overflow: hidden;
+      background: #f9f9f9;
+    }
+
+    /* Floating Background Shapes */
+    .background-shapes {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .background-shapes span {
+      position: absolute;
+      display: block;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,120,168,0.6), rgba(0,0,0,0));
+      animation: float 18s infinite linear;
+    }
+
+    .background-shapes span:nth-child(1) { top: 10%; left: 20%; background: radial-gradient(circle, rgba(0,120,255,0.5), transparent); animation-duration: 15s; }
+    .background-shapes span:nth-child(2) { top: 40%; left: 70%; background: radial-gradient(circle, rgba(168,0,255,0.5), transparent); animation-duration: 18s; }
+    .background-shapes span:nth-child(3) { top: 80%; left: 10%; background: radial-gradient(circle, rgba(0,200,168,0.5), transparent); animation-duration: 20s; }
+    .background-shapes span:nth-child(4) { top: 30%; left: 40%; background: radial-gradient(circle, rgba(255,0,120,0.5), transparent); animation-duration: 25s; }
+    .background-shapes span:nth-child(5) { top: 60%; left: 80%; background: radial-gradient(circle, rgba(255,168,0,0.5), transparent); animation-duration: 22s; }
+
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 0.7; }
+      50% { transform: translateY(-50px) scale(1.2); opacity: 0.4; }
+      100% { transform: translateY(0) scale(1); opacity: 0.7; }
+    }
+
+    /* Form Content (Above Shapes) */
+    .contact h2, .contact p, .contact-form {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #002B5B;
+    }
+    .contact p {
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 20px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form input, 
+    .contact-form textarea {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .contact-form textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    /* Animate elements */
+    .animate {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+    .animate.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-1 { transition-delay: 0.2s; }
+    .delay-2 { transition-delay: 0.4s; }
+    .delay-3 { transition-delay: 0.6s; }
+    .delay-4 { transition-delay: 0.8s; }
+    .delay-5 { transition-delay: 1s; }
+
+    footer { background: #002B5B; color: white; text-align: center; padding: 20px; margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>BiznessCentral</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Industries</a>
+      <a href="#">Resources</a>
+      <a href="#contact">Get in Touch</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section with Slider -->
+  <div class="slider">
+    <div class="slides">
+      <img src="slider1.png" alt="Business Central">
+      <img src="slider2.png" alt="ERP Solutions">
+      <img src="slider3.png" alt="AI Integration">
+    </div>
+    
+  </div><br><br><br>
+
+  <!-- Partner Tabs (Below Slider) -->
+  <section class="partner-tabs">
+    <div class="partner-card">
+      <img src="microsoft.svg" alt="Microsoft">
+      <h3>Business Applications</h3>
+    </div>
+    <div class="partner-card">
+      <img src="microsoft.svg" alt="Microsoft">
+      <h3>Data & AI (Azure)</h3>
+    </div>
+    <div class="partner-card">
+      <img src="microsoft.svg" alt="Microsoft">
+      <h3>Infrastructure (Azure)</h3>
+    </div>
+    <div class="partner-card">
+      <img src="microsoft.svg" alt="Microsoft">
+      <h3>Digital & App Innovation</h3>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services">
+    <h2>Our Core Services</h2>
+    <div class="service-grid">
+      <div class="card">
+        <h3>Implementation</h3>
+        <p>End-to-end Business Central rollout — from process design to deployment.</p>
+      </div>
+      <div class="card">
+        <h3>Customization</h3>
+        <p>Tailored AL extensions, workflows, and reporting solutions.</p>
+      </div>
+      <div class="card">
+        <h3>Cloud & AI Integration</h3>
+        <p>Azure, RPA, and AI-powered automations for your ERP.</p>
+      </div>
+      <div class="card">
+        <h3>Support & Training</h3>
+        <p>24×7 helpdesk, ongoing support, and team enablement programs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Partners -->
+  <section class="partners">
+    <h2>Our Trusted Partners</h2>
+    <div class="partner-logos">
+      <img src="microsoft.svg" alt="Microsoft">
+      <img src="azure.jpg" alt="Azure">
+      <img src="powerbi.jpg" alt="Power BI">
+      <img src="bc.jpg" alt="Dynamics 365">
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+<section class="contact" id="contact">
+  <div class="background-shapes">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <h2 class="animate">Get in Touch</h2>
+  <p class="animate">Let’s discuss how BiznessCentral can transform your business with Microsoft Dynamics 365 Business Central.</p>
+  
+  <form id="contact-form" class="contact-form">
+    <input type="text" name="from_name" placeholder="Your Name" class="animate delay-1" required>
+    <input type="email" name="reply_to" placeholder="Your Email" class="animate delay-2" required>
+    <input type="text" name="company" placeholder="Company Name" class="animate delay-3">
+    <textarea name="message" placeholder="Your Message" class="animate delay-4" required></textarea>
+    <button type="submit" class="btn animate delay-5">Send Message</button>
+  </form>
+</section>
+
+<!-- EmailJS Script -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("yXMtjTkg_PIJcyJCg"); // 🔑 Replace with your EmailJS Public Key
+  })();
+
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm("service_tr3cwvi", "template_782iqmd", this)
+      .then(function() {
+        alert("✅ Message sent successfully!");
+      }, function(error) {
+        alert("❌ Failed to send message. Please try again.");
+        console.log(error);
+      });
+  });
+</script>
+
+
+  <footer>
+    <p>© 2025 BiznessCentral | Powered by Dynamics 365 Business Central Experts</p>
+  </footer>
+
+  <script>
+    // Scroll animation for Get in Touch
+    const animatedItems = document.querySelectorAll('.animate');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    animatedItems.forEach(item => observer.observe(item));
+  </script>
+</body>
+</html>
